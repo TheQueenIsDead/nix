@@ -7,7 +7,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, ... }@inputs: let
+    outputs = { self, nixpkgs, home-manager, ... }@inputs: let
         username = "tqid";
         system = "x86_64-linux";
     in
@@ -15,9 +15,12 @@
         nixosConfigurations.keres = nixpkgs.lib.nixosSystem {
             specialArgs = {inherit inputs;};
             modules = [
-                ./profiles/keres
-#                ./profiles/keres/configuration.nix
-                inputs.home-manager.nixosModules.default
+                ./profiles/keres/configuration.nix
+#                ./profiles/keres
+                home-manager.nixosModules.home-manager {
+                    home-manager.users.tqid = ./profiles/keres/home.nix;
+                }
+#                inputs.home-manager.nixosModules.default
 #                ./profiles/keres/home.nix
             ];
         };
