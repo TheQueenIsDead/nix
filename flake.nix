@@ -12,15 +12,14 @@
         system = "x86_64-linux";
     in
     {
-        nixosConfigurations = {
-            keres = nixpkgs.lib.nixosSystem {
-                specialArgs = {inherit inputs;};
-                modules = [
-                    ./profiles/keres/configuration.nix
-                    inputs.home-manager.nixosModules.default
-                    ./profiles/keres/home.nix
-                ];
-            };
+        nixosConfigurations.keres = nixpkgs.lib.nixosSystem {
+            specialArgs = {inherit inputs;};
+            modules = [
+                ./profiles/keres
+#                ./profiles/keres/configuration.nix
+                inputs.home-manager.nixosModules.default
+#                ./profiles/keres/home.nix
+            ];
         };
     };
 }
