@@ -18,5 +18,18 @@
                 ./profiles/keres
             ];
         };
+        nixosConfigurations.nyx = nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs; };
+            modules = [
+                ./profiles/nyx
+            ];
+        };
+
+        nixosConfigurations.erebos = nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs; };
+            modules = [
+                ./profiles/erebos
+            ];
+        };
     };
 }
