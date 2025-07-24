@@ -10,6 +10,10 @@
         inputs.home-manager.nixosModules.default
     ];
 
+    # Enable flake support
+    nix.settings.experimental-features = ["nix-command" "flakes"];
+
+
     # Specify a default user of the system
     users.users.tqid = {
         isNormalUser = true;
