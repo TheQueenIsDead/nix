@@ -25,12 +25,12 @@
     extraGroups = ["wheel" "networkmanager"];
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "tqid" = import ./home.nix;
-    };
-  };
+#  home-manager = {
+#    extraSpecialArgs = { inherit inputs; };
+#    users = {
+#      "tqid" = import ./home.nix;
+#    };
+#  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -106,7 +106,7 @@
   # services.xserver.libinput.enable = true;
 
   # Allow unfree packages
-#  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
