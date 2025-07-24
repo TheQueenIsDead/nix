@@ -32,6 +32,17 @@
         };
     };
 
+    # NFS
+    fileSystems."/mnt/nuc/movies" = {
+        device = "192.168.0.5:/mnt/orico/movies";
+        fsType = "nfs";
+    };
+    fileSystems."/mnt/nuc/tv" = {
+        device = "192.168.0.5:/mnt/orico/tv";
+        fsType = "nfs";
+    };
+    boot.supportedFilesystems = ["nfs"];
+
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
