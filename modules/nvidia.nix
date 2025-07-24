@@ -5,6 +5,9 @@
 { config, pkgs, inputs, ... }:
 {
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
@@ -51,6 +54,5 @@
       nvidiaBusId = "PCI:1:0:0";
       amdgpuBusId = "PCI:4:0:0";
     };
-
   };
 }
