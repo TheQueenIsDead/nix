@@ -24,7 +24,6 @@
                 ./profiles/nyx
             ];
         };
-
         nixosConfigurations.erebos = nixpkgs.lib.nixosSystem {
             specialArgs = { inherit inputs; };
             modules = [
