@@ -6,6 +6,7 @@
     imports = [
         ../../modules/locale.nix
         ../../modules/nvidia.nix
+#        ../../modules/hyprland
         ./hardware-configuration.nix
         inputs.home-manager.nixosModules.default
     ];
@@ -28,7 +29,9 @@
             inherit inputs;
         };
         users.tqid = {
-            imports = [ ../../modules/home.nix ];
+            imports = [
+                ../../modules/home.nix
+            ];
         };
     };
 

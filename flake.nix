@@ -16,6 +16,7 @@
             specialArgs = { inherit inputs; };
             modules = [
                 ./profiles/keres
+                home-manager.nixosModules.home-manager
             ];
         };
     };
