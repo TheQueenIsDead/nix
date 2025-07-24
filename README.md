@@ -1,3 +1,11 @@
-# Nix
+# ❄️ Nix
 
-wild os, thought I better backup my config in case i whoopsie my desktop environment or something
+Repeatable rice in real-time.
+
+Learning the ins and outs of Nix configurations one uninstalled driver at a time 🤓.
+
+## Quickstart
+
+```shell
+sudo nixos-rebuild test --flake /home/tqid/nix#$(hostname)
+```
