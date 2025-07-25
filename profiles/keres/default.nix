@@ -19,7 +19,7 @@
         isNormalUser = true;
         description = "tqid";
         home = "/home/tqid";
-        extraGroups = ["wheel" "networkmanager"];
+        extraGroups = ["wheel" "networkmanager" "docker"];
     };
 
     # Let home manager control the default userspace
@@ -99,7 +99,27 @@
     environment.systemPackages = with pkgs; [
         pkgs.tor-browser
         pkgs.signal-desktop
+        pkgs.podman
+        pkgs.podman-compose
+        pkgs.nvidia-container-toolkit
+        pkgs.docker
     ];
+    virtualisation.docker.enable = true;
+    virtualisation.podman.enable = true;
+#    virtualisation.podman.enableNvidia = true; # Deprecated for below
+    hardware.nvidia-container-toolkit.enable = true;
+    environment.etc."containers/oci/hooks.d/nvidia.json".text = ''
+        {
+          "version": "1.0.0",
+          "hook": {
+            "path": "${pkgs.nvidia-container-toolkit}/bin/nvidia-cdi-hook"
+          },
+          "when": {
+            "always": true
+          },
+          "stages": ["createRuntime"]
+        }
+      '';
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
