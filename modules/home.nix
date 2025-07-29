@@ -1,11 +1,5 @@
 { config, pkgs, lib, ... }:
 
-let
-  alternateJetbrainsJdk = pkgs.jdk;
-  golandOverridden = pkgs.jetbrains.goland.override {
-    jdk = alternateJetbrainsJdk;
-  };
-in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -32,11 +26,7 @@ in
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-
-    # FIXME: Restore the upstream package installation once the nix build is fixed upstream
-    # Refer: https://github.com/NixOS/nixpkgs/issues/425328
-    # pkgs.jetbrains.goland
-    golandOverridden
+    pkgs.jetbrains.goland
     pkgs.go
     pkgs.librewolf
     pkgs.bitwarden-desktop
