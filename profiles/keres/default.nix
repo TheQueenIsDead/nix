@@ -34,11 +34,15 @@
 
     # NFS
     fileSystems."/mnt/nuc/movies" = {
-        device = "192.168.0.5:/mnt/orico/movies";
+        device = "10.0.0.1:/mnt/orico/movies";
         fsType = "nfs";
     };
     fileSystems."/mnt/nuc/tv" = {
-        device = "192.168.0.5:/mnt/orico/tv";
+        device = "10.0.0.1:/mnt/orico/tv";
+        fsType = "nfs";
+    };
+    fileSystems."/mnt/nuc/tdarr/cache" = {
+        device = "10.0.0.1:/mnt/orico/config/tdarr/cache";
         fsType = "nfs";
     };
     boot.supportedFilesystems = ["nfs"];
@@ -103,6 +107,8 @@
         pkgs.podman-compose
         pkgs.nvidia-container-toolkit
         pkgs.docker
+        pkgs.libva-utils
+        pkgs.intel-gpu-tools
     ];
     virtualisation.docker.enable = true;
     virtualisation.podman.enable = true;
