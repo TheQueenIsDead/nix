@@ -54,6 +54,12 @@
     # Networking
     networking.hostName = "keres"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networking.interfaces.eno1 = {
+        ipv4.addresses = [{
+            address = "10.0.0.2";
+            prefixLength = 8;
+        }];
+    };
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
