@@ -4,6 +4,7 @@
 { config, pkgs, inputs, lib, home-manager,  ... }:
 {
     imports = [
+#        ../../modules/development.nix
         ../../modules/locale.nix
         ../../modules/nvidia.nix
         ./hardware-configuration.nix
@@ -28,7 +29,10 @@
             inherit inputs;
         };
         users.tqid = {
-            imports = [ ../../modules/home.nix ];
+            imports = [
+                ../../modules/home.nix
+                ../../modules/development.nix
+            ];
         };
     };
 
