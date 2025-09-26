@@ -113,12 +113,15 @@
     environment.systemPackages = with pkgs; [
         pkgs.tor-browser
         pkgs.signal-desktop
+	pkgs.firefox
         pkgs.podman
         pkgs.podman-compose
         pkgs.nvidia-container-toolkit
         pkgs.docker
         pkgs.libva-utils
         pkgs.intel-gpu-tools
+	pkgs.ente-desktop
+	pkgs.proton-pass
     ];
     virtualisation.docker.enable = true;
     virtualisation.podman.enable = true;
