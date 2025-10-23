@@ -36,20 +36,20 @@
         };
     };
 
-    # NFS
-    fileSystems."/mnt/nuc/movies" = {
-        device = "10.0.0.1:/mnt/orico/movies";
-        fsType = "nfs";
-    };
-    fileSystems."/mnt/nuc/tv" = {
-        device = "10.0.0.1:/mnt/orico/tv";
-        fsType = "nfs";
-    };
-    fileSystems."/mnt/nuc/tdarr/cache" = {
-        device = "10.0.0.1:/mnt/orico/config/tdarr/cache";
-        fsType = "nfs";
-    };
-    boot.supportedFilesystems = ["nfs"];
+#    # NFS
+#    fileSystems."/mnt/nuc/movies" = {
+#        device = "10.0.0.1:/mnt/orico/movies";
+#        fsType = "nfs";
+#    };
+#    fileSystems."/mnt/nuc/tv" = {
+#        device = "10.0.0.1:/mnt/orico/tv";
+#        fsType = "nfs";
+#    };
+#    fileSystems."/mnt/nuc/tdarr/cache" = {
+#        device = "10.0.0.1:/mnt/orico/config/tdarr/cache";
+#        fsType = "nfs";
+#    };
+#    boot.supportedFilesystems = ["nfs"];
 
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
